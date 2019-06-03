@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Manipulando a DOM</title>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+
+    <script>
+        var appElement = document.querySelector('div#app')
+        var btnElement = document.createElement('input')
+        
+        btnElement.setAttribute('type', 'button')
+        btnElement.setAttribute('value', 'Criar Quadrado')
+
+        appElement.appendChild(btnElement)
+
+        btnElement.onclick = function() {
+            var squareElement = document.createElement('div')
+            squareElement.style.width = '100px'
+            squareElement.style.height = '100px'
+            squareElement.style.margin = '10px'
+            squareElement.style.backgroundColor = '#f00'
+
+            squareElement.onmouseover = function(){
+                squareElement.style.backgroundColor = getRandomColor()
+            }
+
+            appElement.appendChild(squareElement)
+        }
+
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF"
+            var color = "#"
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)]
+            }
+            return color
+        }
+    </script>
+</body>
+</html>

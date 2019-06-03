@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Manipulando a DOM</title>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+
+    <script>
+        var nomes = ['Diego', 'Gabriel', 'Lucas']
+
+        var appElement = document.querySelector('div#app')
+
+        var inputElement = document.createElement('input')
+        inputElement.setAttribute('type', 'text')
+        inputElement.setAttribute('name', 'nome')
+
+        var btnElement = document.createElement('input')
+        btnElement.setAttribute('type', 'button')
+        btnElement.setAttribute('value', 'Adicionar')
+
+        appElement.appendChild(inputElement)
+        appElement.appendChild(btnElement)
+
+        btnElement.onclick = function(){ 
+            // for(nome of nomes){
+            var ulElement = document.createElement('ul')
+            var liElement = document.createElement('li')
+            var textElement = document.createTextNode(inputElement.value)
+            // nome.push(inputElement.value)
+            ulElement.appendChild(liElement)
+            liElement.appendChild(textElement)
+            appElement.appendChild(ulElement)
+            // }
+        }
+    </script>
+</body>
+</html>
